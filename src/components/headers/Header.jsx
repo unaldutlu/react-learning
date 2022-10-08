@@ -1,5 +1,10 @@
+import './header.css'
+
+
+
+
 function Header() {
-  return <div>Merhaba ben bir header bileşeniyim.</div>;
+  return <div className='style'>Merhaba ben bir header bileşeniyim.</div>;
 }
 
 export default Header;

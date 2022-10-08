@@ -1,7 +1,7 @@
 // import React from "react";
-// import Header from "./components/headers/Header.jsx";
+import Header from "./components/headers/Header.jsx";
 import "./App.css";
-import User from "./components/users/User";
+// import User from "./components/users/User";
 
 // const name = "Unal";
 // const surname = "Dutlu";
@@ -11,7 +11,7 @@ function App() {
   return (
     // <React.Fragment>
     //   <h1>Hello React</h1>
-    //   <Header />
+      <Header />
     //   <p className='jsx'>Lorem ipsum</p>
     //   <label htmlFor='myinput'>Name</label>
     //   <input id='myinput'></input>
@@ -36,9 +36,9 @@ function App() {
     // ! ******************------------************
     // ! props
 
-    <>
-      <User name='Unal' surname='Dutlu' age={30} isLoggedIn={true} />
-    </>
+    // <>
+    //   <User name='Unal' surname='Dutlu' age={30} isLoggedIn={true} />
+    // </>
   );
 }
 
