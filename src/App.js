@@ -1,17 +1,43 @@
 // import React from "react";
-import Header from "./components/headers/Header.jsx";
+// import Header from "./components/headers/Header.jsx";v
 import "./App.css";
-// import User from "./components/users/User";
+import User from "./components/users/User";
 
 // const name = "Unal";
 // const surname = "Dutlu";
 // const isLoggedIn = true;
+const friends = [
+  {
+    id: 1,
+    name: "Ahmet",
+  },
+  {
+    id: 2,
+    name: "Mehmet",
+  },
+  {
+    id: 3,
+    name: "Unal",
+  },
+];
 
 function App() {
   return (
+    // ! props
+    <>
+      <User
+        name='Unal'
+        surname='Dutlu'
+        age={30}
+        isLoggedIn={true}
+        // friends={["Ahmet", "Mehmet", "Unal"]}
+        friends={friends}
+      />
+    </>
+    // ! *******---------------**************
     // <React.Fragment>
     //   <h1>Hello React</h1>
-      <Header />
+    //   <Header />
     //   <p className='jsx'>Lorem ipsum</p>
     //   <label htmlFor='myinput'>Name</label>
     //   <input id='myinput'></input>
@@ -34,11 +60,6 @@ function App() {
     //   </h1> */}
     // </>
     // ! ******************------------************
-    // ! props
-
-    // <>
-    //   <User name='Unal' surname='Dutlu' age={30} isLoggedIn={true} />
-    // </>
   );
 }
 
