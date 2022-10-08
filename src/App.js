@@ -32,6 +32,10 @@ function App() {
         isLoggedIn={true}
         // friends={["Ahmet", "Mehmet", "Unal"]}
         friends={friends}
+        address={{
+          title: "Ankara",
+          zip: 1881,
+        }}
       />
     </>
     // ! *******---------------**************
