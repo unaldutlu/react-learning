@@ -10,7 +10,6 @@
 
 function User({ name, surname, age, isLoggedIn }) {
   return (
-    <h1>unal</h1>
     <h1>{isLoggedIn ? `${name} ${surname} ${age}` : "Giriş yapamadınız..."}</h1>
   );
 }
