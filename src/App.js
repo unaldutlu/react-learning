@@ -21,6 +21,8 @@ const friends = [
   },
 ];
 
+
+
 function App() {
   return (
     // ! props
