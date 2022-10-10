@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Counter from "./components/Counter";
+import InputExample from "./components/InputExample";
 
 function App() {
   const [name, setName] = useState("Dutlu");
@@ -34,6 +35,8 @@ function App() {
       </button>
       <hr />
       <Counter />
+      <hr />
+      <InputExample />
     </div>
   );
 }
