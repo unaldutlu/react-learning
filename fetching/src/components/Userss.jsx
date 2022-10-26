@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
-function Users() {
+function Userss() {
   const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setISLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((data) => data.json())
-      .then((data) => setUsers(data))
+    axios("https://jsonplaceholder.typicode.com/users")
+      .then((e) => setUsers(e.data))
       .catch((e) => console.log(e))
-      .finally(() => setIsLoading(false));
+      .finally(() => setISLoading(false));
   }, []);
 
   return (
@@ -23,4 +23,4 @@ function Users() {
   );
 }
 
-export default Users;
+export default Userss;
