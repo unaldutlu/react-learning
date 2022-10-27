@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import About from "./components/About";
 import Home from "./components/Home";
 import Users from "./components/Users";
+import User from "./components/User";
 
 function App() {
   return (
@@ -11,19 +12,13 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to='/home' style={{ fontSize: 50, color: "blue" }}>
-                Home
-              </Link>
+              <Link to='/home'>Home</Link>
             </li>
             <li>
-              <Link to='/about' style={{ fontSize: 50, color: "blue" }}>
-                About
-              </Link>
+              <Link to='/about'>About</Link>
             </li>
             <li>
-              <Link to='/users' style={{ fontSize: 50, color: "blue" }}>
-                Users
-              </Link>
+              <Link to='/users'>Users</Link>
             </li>
           </ul>
         </nav>
@@ -32,6 +27,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/users' element={<Users />} />
+          <Route path='/user/:id' element={<User />} />
         </Routes>
       </div>
     </Router>

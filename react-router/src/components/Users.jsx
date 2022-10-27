@@ -1,15 +1,28 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Users() {
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    axios("https://jsonplaceholder.typicode.com/users")
+      .then((item) => setUsers(item.data))
+      .finally(() => setIsLoading(false));
+  }, []);
+
   return (
     <div>
       <h2>Users</h2>
-      <p style={{ fontStyle: "italic" }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam corrupti
-        eveniet quae quam, beatae culpa? Doloremque, laboriosam! Laudantium
-        molestias ipsum veritatis. Earum eaque dignissimos sed nulla laboriosam
-        tenetur beatae labore.
-      </p>
+      {isLoading && <div>Loading...</div>}
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            <Link to={`/user/${user.id}`}>{user.name}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
