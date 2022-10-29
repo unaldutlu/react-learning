@@ -4,30 +4,18 @@ import About from "./components/About";
 import Home from "./components/Home";
 import Users from "./components/Users";
 import User from "./components/User";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to='/home'>Home</Link>
-            </li>
-            <li>
-              <Link to='/about'>About</Link>
-            </li>
-            <li>
-              <Link to='/users'>Users</Link>
-            </li>
-          </ul>
-        </nav>
-
         <Routes>
-          <Route path='/home' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/users' element={<Users />} />
-          <Route path='/user/:id' element={<User />} />
+          <Route path='/*' element={<Layout />}>
+            <Route path='' element={<Home />} />
+            <Route path='about' element={<About />} />
+            <Route path='users/*' element={<Users />}/>
+          </Route>
         </Routes>
       </div>
     </Router>
