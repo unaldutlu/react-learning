@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import axios from "axios";
 
 function Users() {
@@ -9,6 +9,7 @@ function Users() {
   useEffect(() => {
     axios("https://jsonplaceholder.typicode.com/users")
       .then((item) => setUsers(item.data))
+      .catch((e) => console.log(e))
       .finally(() => setIsLoading(false));
   }, []);
 
@@ -20,7 +21,12 @@ function Users() {
         <ul>
           {users.map((user) => (
             <li key={user.id}>
-              <Link to={`user/${user.id}`}>{user.name}</Link>
+              <NavLink
+                style={({ isActive }) => ({ color: isActive ? "red" : "pink" })}
+                to={`user/${user.id}`}
+              >
+                {user.name}
+              </NavLink>
             </li>
           ))}
         </ul>

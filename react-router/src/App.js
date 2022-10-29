@@ -19,8 +19,8 @@ function App() {
           <Route path='users/*' element={<Users />}>
             <Route path='user/:id' element={<User />} />
           </Route>
+          <Route path='*' element={<NotFound />} />
         </Route>
-        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

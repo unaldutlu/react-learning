@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function Layout() {
   return (
@@ -7,13 +7,35 @@ function Layout() {
       <nav>
         <ul>
           <li>
-            <Link to='/'>Home</Link>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "blue" : "burlywood",
+              })}
+              end
+              to='/'
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to='about'>About</Link>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "blue" : "burlywood",
+              })}
+              to='about'
+            >
+              About
+            </NavLink>
           </li>
           <li>
-            <Link to='users'>Users</Link>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "blue" : "burlywood",
+              })}
+              to='users'
+            >
+              Users
+            </NavLink>
           </li>
         </ul>
         <hr />

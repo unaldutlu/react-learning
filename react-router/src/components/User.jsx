@@ -1,4 +1,4 @@
-import { useParams, Link} from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -6,13 +6,11 @@ function User() {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
-  
-
-  
 
   useEffect(() => {
     axios(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((data) => setUser(data.data))
+      .catch((e) => console.log(e))
       .finally(() => setIsLoading(false));
   }, [id]);
 
@@ -22,11 +20,14 @@ function User() {
       {isLoading && <div>Loading...</div>}
       {!isLoading && <code>{JSON.stringify(user)}</code>}
       <br />
-      <Link to={`users/${parseInt(id) + 1}`}>
-        Next User ({parseInt(id) + 1})
-      </Link>
+      {parseInt(id) < 10 ? (
+        <Link to={`/users/user/${parseInt(id) + 1}`}>
+          Next User {parseInt(id) + 1}
+        </Link>
+      ) : (
+        <Link to={`/users/user/${1}`}> Turn Head </Link>
+      )}
       <hr />
-      
     </div>
   );
 }
