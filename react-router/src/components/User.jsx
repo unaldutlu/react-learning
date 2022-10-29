@@ -12,7 +12,7 @@ function User() {
     axios(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((data) => setUser(data.data))
       .finally(() => setIsLoading(false));
-  }, [user]);
+  }, [id]);
 
   return (
     <div>
@@ -20,9 +20,7 @@ function User() {
       {isLoading && <div>Loading...</div>}
       {!isLoading && <code>{JSON.stringify(user)}</code>}
       <br />
-      <br />
-      <br />
-      <Link to={`/user/${parseInt(id) + 1}`}>
+      <Link to={`user/${parseInt(id) + 1}`}>
         Next User ({parseInt(id) + 1})
       </Link>
     </div>
