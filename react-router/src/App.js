@@ -5,10 +5,13 @@ import Home from "./components/Home";
 import Users from "./components/Users";
 import Layout from "./components/Layout";
 import User from "./components/User";
+import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
     <BrowserRouter>
+      {/* <Layout /> */}
       <Routes>
         <Route path='/*' element={<Layout />}>
           <Route path='' element={<Home />} />
@@ -17,7 +20,9 @@ function App() {
             <Route path='user/:id' element={<User />} />
           </Route>
         </Route>
+        <Route path='*' element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
