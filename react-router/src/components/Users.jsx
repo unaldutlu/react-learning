@@ -1,7 +1,6 @@
-import { Link, Outlet, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import axios from "axios";
-import User from "./User";
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -28,10 +27,6 @@ function Users() {
         <hr />
       </nav>
       <Outlet />
-
-      <Routes>
-        <Route path='/User/:id' element={<User />} />
-      </Routes>
     </div>
   );
 }
