@@ -3,6 +3,7 @@ import "./App.css";
 import { Formik } from "formik";
 import Formik1 from "./components/Formik1";
 import Formik2 from "./components/Formik2";
+import Formikuse from "./components/Formikuse";
 
 function App() {
   return (
@@ -56,6 +57,8 @@ function App() {
       <Formik1 />
       <hr />
       <Formik2 />
+      <hr />
+      <Formikuse />
     </div>
   );
 }

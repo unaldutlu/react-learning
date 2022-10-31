@@ -46,10 +46,22 @@ function Formik2() {
               onChange={handleChange}
             />
             <br />
-            <input type='radio' name='gender' onChange={handleChange} value="male"/>
+            <input
+              type='radio'
+              name='gender'
+              onChange={handleChange}
+              value='male'
+              checked={values.gender === "male"}
+            />
             <span>Male</span>
             <br />
-            <input type='radio' name='gender' onChange={handleChange} value="female"/>
+            <input
+              type='radio'
+              name='gender'
+              onChange={handleChange}
+              value='female'
+              checked={values.gender === "female"}
+            />
             <span>Female</span>
             <br />
             <br />
@@ -84,7 +96,7 @@ function Formik2() {
             <br />
             <select
               name='country'
-            //   value={values.country}
+              //   value={values.country}
               onChange={handleChange}
             >
               <option value='Turkey'>Turkey</option>
