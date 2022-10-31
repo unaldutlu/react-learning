@@ -101,12 +101,12 @@ function Formikuse() {
       <br />
       <br />
       <br />
-      <button style={{ "text-align": "center" }} type='submit'>
-        Submit
-      </button>
+      <button type='submit'>Submit</button>
       <br />
       <code>{JSON.stringify(values)}</code>
-      <br /><br /><br />
+      <br />
+      <br />
+      <br />
     </form>
   );
 }
