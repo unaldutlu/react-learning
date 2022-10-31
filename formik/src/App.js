@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { Formik } from "formik";
 import Formik1 from "./components/Formik1";
+import Formik2 from "./components/Formik2";
 
 function App() {
   return (
@@ -51,7 +52,10 @@ function App() {
           </form>
         )}
       </Formik>
+      <hr />
       <Formik1 />
+      <hr />
+      <Formik2 />
     </div>
   );
 }
