@@ -2,48 +2,63 @@ import React from "react";
 import { useFormik } from "formik";
 import Validation from "./Validation";
 
-function Formikuse() {
-  const { handleChange, handleSubmit, values } = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-      passwordConfirm: "",
-    },
+function Yupvalidation() {
+  const { handleChange, handleSubmit, handleBlur, values, errors, touched } =
+    useFormik({
+      initialValues: {
+        email: "",
+        password: "",
+        passwordConfirm: "",
+      },
 
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+      onSubmit: (values) => {
+        alert(JSON.stringify(values, null, 2));
+      },
+      validationSchema: Validation,
+    });
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='email'>Email</label>
+      <form onSubmit={handleSubmit} className='labels'>
+        <label>Email</label>
         <input
-          id='email'
           name='email'
           placeholder='jane@acme.com'
           type='email'
+          value={values.email}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
+        {errors.email && touched.email && (
+          <div className='error'>{errors.email}</div>
+        )}
         <br />
-        <label htmlFor='password'>Password</label>
+        <label>Password</label>
         <input
-          id='password'
           name='password'
-          placeholder='jane@acme.com'
+          placeholder='12345'
           type='password'
+          value={values.password}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
+        {errors.password && touched.password && (
+          <div className='error'>{errors.password}</div>
+        )}
         <br />
-        <label htmlFor='passwordConfirm'>Passwordconfirm</label>
+        <label>Password Confirm</label>
         <input
-          id='passwordConfirm'
           name='passwordConfirm'
-          placeholder='jane@acme.com'
+          placeholder='12345'
           type='password'
+          value={values.passwordConfirm}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
+        {errors.passwordConfirm && touched.passwordConfirm && (
+          <div className='error'>{errors.passwordConfirm}</div>
+        )}
+        <br />
         <br />
         <button type='submit'>Submit</button>
         <br />
@@ -56,4 +71,4 @@ function Formikuse() {
   );
 }
 
-export default Formikuse;
+export default Yupvalidation;

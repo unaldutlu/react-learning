@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import Formik1 from "./components/Formik1";
 import Formik2 from "./components/Formik2";
 import Formikuse from "./components/Formikuse";
+import Yupvalidation from "./components/Yupvalidation";
 
 function App() {
   return (
@@ -59,6 +60,8 @@ function App() {
       <Formik2 />
       <hr />
       <Formikuse />
+      <hr />
+      <Yupvalidation />
     </div>
   );
 }
