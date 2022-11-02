@@ -1,10 +1,13 @@
 import React from "react";
 
-function Header({ number }) {
+function Header({ number, data }) {
   console.log("çalışıyorum");
   return (
     <div>
-      <h1>hello- {number}</h1>
+      hello- {number}
+      <br />
+      <br />
+      <code>{JSON.stringify(data)}</code>
     </div>
   );
 }
