@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { XCircleIcon } from "@heroicons/react/24/solid";
 
 function Todo() {
   const [form, setForm] = useState();
@@ -31,25 +32,49 @@ function Todo() {
     }
   };
 
+  const removeClick = (e) => {
+    todos.splice(e, 1);
+    setTodos([...todos]);
+  };
+
   return (
-    <div>
+    <div className='flex flex-col justify-start items-center bg-red-200 w-[25rem] h-[34rem] shadow-2xl'>
       <h1>Todo</h1>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className='flex justify-center items-center'
+      >
         <input
           name='name'
           value={form}
           onChange={handleChange}
           autoComplete='off'
+          className='border-2 border-gray-500 rounded-xl pl-3'
         />
         &nbsp;
-        <button onClick={notify}>Add</button>
+        <button
+          onClick={notify}
+          className='border-2 border-gray-500 rounded-xl'
+        >
+          Add
+        </button>
         <Toaster />
       </form>
-      <div>
+      <div className='w-full mt-5 px-2'>
         {todos.map((el, i) => (
-          <div key={i}>
+          <div key={i} className='my-2'>
             <ul>
-              <li>{el}</li>
+              <li className='flex justify-between border-b-2 border-b-white'>
+                <span className='break-all px-2'>
+                  {i + 1}) {el}
+                </span>
+                <span>
+                  <XCircleIcon
+                    className='h-6 w-6 text-blue-500 hover:text-red-500'
+                    onClick={() => removeClick(i)}
+                  />
+                </span>
+              </li>
             </ul>
           </div>
         ))}
