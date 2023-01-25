@@ -5,6 +5,7 @@ import { XCircleIcon } from "@heroicons/react/24/solid";
 function Todo() {
   const [form, setForm] = useState();
   const [todos, setTodos] = useState([]);
+  const [through, setThrough] = useState(false);
 
   const handleChange = (e) => {
     setForm(e.target.value);
@@ -21,7 +22,7 @@ function Todo() {
 
   const notify = () => {
     if (form !== "") {
-      toast("Tebrikler...", {
+      toast("Başarıyla Eklendi...", {
         icon: "👏",
         style: {
           borderRadius: "10px",
@@ -35,6 +36,7 @@ function Todo() {
   const removeClick = (e) => {
     todos.splice(e, 1);
     setTodos([...todos]);
+    toast.success("Başarıyla Kaldırıldı...");
   };
 
   return (
@@ -54,7 +56,7 @@ function Todo() {
         &nbsp;
         <button
           onClick={notify}
-          className='border-2 border-gray-500 rounded-xl'
+          className='border-2 border-gray-500 rounded-xl px-2 bg-blue-300 hover:bg-blue-500'
         >
           Add
         </button>
@@ -66,7 +68,7 @@ function Todo() {
             <ul>
               <li className='flex justify-between border-b-2 border-b-white'>
                 <span className='break-all px-2'>
-                  {i + 1}) {el}
+                  {i + 1}) <span>{el}</span>
                 </span>
                 <span>
                   <XCircleIcon
